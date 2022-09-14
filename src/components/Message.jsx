@@ -8,13 +8,13 @@ const style = {
   received: `bg-[#e5e5ea] text-black float-left rounded-br-full`,
 }
 
-const Message = ({ message }) => {
+const Message = ({ message , key }) => {
   const messageClass =
     message.uid === auth.currentUser.uid ? `${style.sent}` : `${style.received}`
   const chatClass =
     message.uid === auth.currentUser.uid ? `flex-row-reverse` : ``
   return (
-    <div className={`flex  gap-2 m-3 ${chatClass}`}>
+    <div key={key} className={`flex  gap-2 m-3 ${chatClass}`}>
       <Tooltip title={message.name} arrow>
         <img
           src={message.photoURL}

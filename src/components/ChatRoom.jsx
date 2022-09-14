@@ -8,7 +8,7 @@ import CardOverflow from '@mui/joy/CardOverflow'
 const ChatRoom = ({ room }) => {
   return (
     <div className='mb-1 bg-gray-200 bg-opacity-50 rounded-lg hover:bg-gray-300 transition'>
-      <Link to={`/admin:${room.uid}`}>
+      <Link to={`/chat/${room.uid}`}>
         <Card row>
           <CardOverflow>
             <AspectRatio ratio='1' sx={{ width: 90 }}>

@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import { auth, db } from '../firebase'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { useParams } from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 const SendMessage = ({ scroll }) => {
   const [input, setInput] = useState('')
+  const params = useParams()
+  const [user] = useAuthState(auth)
 
   const sendMessage = async (e) => {
     e.preventDefault()
@@ -11,14 +15,22 @@ const SendMessage = ({ scroll }) => {
       alert('Please enter a valid message')
       return
     }
-    const { uid, displayName } = auth.currentUser
-    await addDoc(collection(db, 'messages'), {
+    const { uid, displayName, photoURL } = auth.currentUser
+    const Data = {
       text: input,
       name: displayName,
       uid,
       timestamp: serverTimestamp(),
-      photoURL : auth.currentUser.photoURL
-    })
+      photoURL: photoURL,
+      to: params.userId,
+    }
+    if (params.userId === 'All') {
+      await addDoc(collection(db, 'GeneralRoom'), Data)
+    } else {
+      await addDoc(collection(db, 'users', uid, 'messages'), Data)
+      await addDoc(collection(db, 'users', params.userId, 'messages'), Data)
+    }
+    console.log(1)
     setInput('')
     scroll.current.scrollIntoView({ behavior: 'smooth' })
   }
