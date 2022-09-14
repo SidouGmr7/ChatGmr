@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Message from './Message'
-import SendMessage from './SendMessage'
+import Message from '../Components/Message'
+import SendMessage from '../Components/SendMessage'
 import { db } from '../firebase'
 import { query, collection, orderBy, onSnapshot } from 'firebase/firestore'
+import { useParams } from 'react-router-dom'
 
 const Chat = () => {
   const [messages, setMessages] = useState([])
+  const params = useParams()
   const scroll = useRef()
   useEffect(() => {
     const q = query(collection(db, 'messages'), orderBy('timestamp'))

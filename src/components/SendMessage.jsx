@@ -30,7 +30,7 @@ const SendMessage = ({ scroll }) => {
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className='w-full text-xl p-2 bg-gray-200 bg-opacity-80 text-black rounded-full'
+        className='pl-6  w-[90%] text-xl p-2 bg-gray-200 bg-opacity-80 text-black rounded-full'
         type='text'
         placeholder='Message'
       />
