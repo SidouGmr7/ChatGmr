@@ -25,7 +25,7 @@ const Admin = () => {
   return (
     <>
       <Navbar to='/' />
-      <main className='flex flex-col p-3  pb-16'>
+      <main className='flex flex-col p-3 pt-24 '>
       <ChatRoom key={Global.uid} room={Global}/>
         {chatrooms &&
           chatrooms.map((room) => <ChatRoom key={room.uid} room={room} />)}

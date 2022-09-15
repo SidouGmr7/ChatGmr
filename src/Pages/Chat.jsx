@@ -36,7 +36,7 @@ const Chat = () => {
 
   return (
     <>
-      <main className='flex flex-col p-3  pb-16'>
+      <main className='flex flex-col p-3 pb-16'>
         {messages &&
           messages.map((message) => (
             <Message key={message.id} message={message} />

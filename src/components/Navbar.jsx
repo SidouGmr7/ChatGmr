@@ -5,7 +5,7 @@ import { auth } from '../firebase'
 import LogOut from './LogOut'
 import SignIn from './SignIn'
 const style = {
-  nav: `flex  w-full bg-gray-800 h-20 justify-between items-center p-4`,
+  nav: `flex fixed w-full bg-gray-800 h-20 justify-between items-center p-4`,
   heading: `text-white text-3xl`,
 }
 
