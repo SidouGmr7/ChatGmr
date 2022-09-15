@@ -3,12 +3,10 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase'
 import Home from '../Pages/Home'
 
-
-const PrivateRoute = () => {
-
+const Private = () => {
   const [user] = useAuthState(auth)
 
-  return user ? <Outlet /> : <Home /> 
+  return user ? <Outlet /> : <Home />
 }
 
-export default PrivateRoute
+export default Private

@@ -2,8 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home'
 import Admin from './Pages/Admin'
-import PrivateRoute from './Components/PrivateRoute'
-import Chat from './Pages/Chat';
+import Chat from './Pages/Chat'
+import Private from './Components/Private'
 
 function App() {
   const style = {
@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/admin/chat/:userId' element={<Chat />} />
-            <Route path='/admin' element={<PrivateRoute />}>
+            <Route path='/admin' element={<Private />}>
               <Route path='/admin' element={<Admin />} />
             </Route>
           </Routes>
