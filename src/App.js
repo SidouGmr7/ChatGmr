@@ -16,9 +16,9 @@ function App() {
         <Router>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/chat/:userId' element={<Chat />} />
-            <Route path='/Admin' element={<PrivateRoute />}>
-              <Route path='/Admin' element={<Admin />} />
+            <Route path='/admin/chat/:userId' element={<Chat />} />
+            <Route path='/admin' element={<PrivateRoute />}>
+              <Route path='/admin' element={<Admin />} />
             </Route>
           </Routes>
         </Router>
