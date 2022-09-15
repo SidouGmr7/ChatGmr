@@ -49,7 +49,7 @@ const SendMessage = ({ scroll }) => {
         placeholder='Message'
       />
       <button
-        className='text-gray-200 text-xl rounded-full p-2 absolute -ml-10 mt-1 bg-[#395dff]'
+        className='text-gray-200 text-xl rounded-full p-2 absolute -ml-10 mt-1 bg-[#701efc]'
         type='submit'>
         <IoMdSend />
       </button>

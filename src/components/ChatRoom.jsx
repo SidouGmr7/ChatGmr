@@ -11,20 +11,20 @@ const ChatRoom = ({ room }) => {
     room.uid != auth.currentUser.uid && (
       <div
         key={room.uid}
-        className='mb-1 bg-gray-200 bg-opacity-50 rounded-lg hover:bg-gray-300 transition'>
+        className='mb-1 bg-gray-200 rounded-full hover:bg-gray-300 hover:scale-[102%] transition'>
         <Link to={`/admin/chat/${room.uid}`}>
           <Card row>
             <CardOverflow>
               <AspectRatio ratio='1' sx={{ width: 90 }}>
                 <img
                   src={room.photoURL}
-                  className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl'
+                  className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl rounded-full'
                   alt=''
                 />
               </AspectRatio>
             </CardOverflow>
             <CardContent>
-              <p className='text-gray-700 pt-3 text-xl'>{room.name}</p>
+              <p className='text-[#260a80] pt-3 text-xl'>{room.name}</p>
             </CardContent>
           </Card>
         </Link>

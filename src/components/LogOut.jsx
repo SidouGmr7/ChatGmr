@@ -12,7 +12,7 @@ const LogOut = () => {
   return (
     <button
       onClick={signOut}
-      className='fixed text-2xl bg-gray-200 px-2 py-2 hover:bg-gray-300 rounded-full'>
+      className='text-2xl text-gray-200 bg-[#701efc] px-2 py-2 hover:bg-[#701efc] hover:bg-opacity-70 rounded-full'>
       <FiLogOut />
     </button>
   )

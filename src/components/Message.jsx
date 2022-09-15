@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 const style = {
   message: ` items-center shadow-xl  py-2 px-3 rounded-tl-full rounded-tr-full`,
-  sent: `bg-[#395dff] text-white text-end float-right rounded-bl-full`,
+  sent: `bg-[#701efc] text-white text-end float-right rounded-bl-full`,
   received: `bg-[#e5e5ea] text-black float-left rounded-br-full`,
 }
 

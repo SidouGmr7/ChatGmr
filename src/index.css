@@ -24,7 +24,7 @@ body {
   width: 64px;
   height: 64px;
   border: 8px solid;
-  border-color: #395dff transparent;
+  border-color: #701efc transparent;
   border-radius: 50%;
   animation: spin 1.5s infinite;
 }
