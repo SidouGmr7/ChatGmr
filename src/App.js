@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home'
 import Admin from './Pages/Admin'
 import Chat from './Pages/Chat'
-import Private from './Components/Private'
+import Private from './components/Private'
 
 function App() {
   const style = {
