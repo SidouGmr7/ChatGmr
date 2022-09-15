@@ -3,11 +3,14 @@ import { auth, db } from '../firebase'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
 import { IoMdSend } from 'react-icons/io'
+import { useEffect } from 'react'
 
 const SendMessage = ({ scroll }) => {
   const [input, setInput] = useState('')
   const params = useParams()
-
+  useEffect(() => {
+    scroll.current.scrollIntoView({ behavior: 'smooth' })
+  }, []);
   const sendMessage = async (e) => {
     e.preventDefault()
     if (input === '') {

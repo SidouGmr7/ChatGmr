@@ -27,9 +27,17 @@ const Message = ({ message }) => {
               alt=''
             />
           </Tooltip>
+          <Tooltip
+            title={
+              message.timestamp === null
+                ? 'times'
+                : message.timestamp.toDate().toISOString()
+            }
+            arrow>
             <div className={`${style.message} ${messageClass}`}>
               <p>{message.text}</p>
             </div>
+          </Tooltip>
         </div>
       )}
       {message.uid === params.userId && (
@@ -41,9 +49,17 @@ const Message = ({ message }) => {
               alt=''
             />
           </Tooltip>
+          <Tooltip
+            title={
+              message.timestamp === null
+                ? 'times'
+                : message.timestamp.toDate().toISOString()
+            }
+            arrow>
             <div className={`${style.message} ${messageClass}`}>
               <p>{message.text}</p>
             </div>
+          </Tooltip>
         </div>
       )}
     </>
