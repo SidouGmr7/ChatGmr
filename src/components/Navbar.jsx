@@ -11,13 +11,15 @@ const Navbar = ({ to }) => {
 
   return (
     <div className='flex fixed w-full bg-[#030143] h-20 justify-between items-center p-4'>
-      <Link to={to}>
-        <img
-          src={user ? user.photoURL : null}
-          className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl rounded-full'
-          alt=''
-        />
-      </Link>
+      {user && (
+        <Link to={to}>
+          <img
+            src={user ? user.photoURL : null}
+            className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl rounded-full'
+            alt=''
+          />
+        </Link>
+      )}
       <img src={Logo} alt='' className='w-60' />
       {user ? (
         <div className=' drop-shadow-xl rounded-full'>
