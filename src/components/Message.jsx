@@ -27,11 +27,9 @@ const Message = ({ message }) => {
               alt=''
             />
           </Tooltip>
-          <Tooltip title={message.timestamp.toDate().toString()} arrow>
             <div className={`${style.message} ${messageClass}`}>
               <p>{message.text}</p>
             </div>
-          </Tooltip>
         </div>
       )}
       {message.uid === params.userId && (
@@ -43,11 +41,9 @@ const Message = ({ message }) => {
               alt=''
             />
           </Tooltip>
-          <Tooltip title={message.timestamp.toDate().toString()} arrow>
             <div className={`${style.message} ${messageClass}`}>
               <p>{message.text}</p>
             </div>
-          </Tooltip>
         </div>
       )}
     </>
