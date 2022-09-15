@@ -1,5 +1,5 @@
 import BG from '../img/Chat.png'
-import Navbar from '../Components/Navbar'
+import Navbar from '../components/Navbar'
 
 const Home = () => {
   return (

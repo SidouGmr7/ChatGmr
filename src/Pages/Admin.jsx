@@ -1,8 +1,8 @@
-import Navbar from './../Components/Navbar'
+import Navbar from '../components/Navbar'
 import React, { useState, useEffect } from 'react'
 import { db } from '../firebase'
 import { query, collection, orderBy, onSnapshot } from 'firebase/firestore'
-import ChatRoom from '../Components/ChatRoom'
+import ChatRoom from '../components/ChatRoom'
 import General from '../img/General.PNG'
 
 const Admin = () => {

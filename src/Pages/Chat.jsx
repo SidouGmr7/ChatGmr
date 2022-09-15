@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Message from '../Components/Message'
-import SendMessage from '../Components/SendMessage'
+import Message from '../components/Message'
+import SendMessage from '../components/SendMessage'
 import { auth, db } from '../firebase'
 import {
   query,
