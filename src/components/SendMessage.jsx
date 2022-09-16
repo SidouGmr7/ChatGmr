@@ -10,7 +10,7 @@ const SendMessage = ({ scroll }) => {
   const params = useParams()
   useEffect(() => {
     scroll.current.scrollIntoView({ behavior: 'smooth' })
-  }, []);
+  }, [])
   const sendMessage = async (e) => {
     e.preventDefault()
     if (input === '') {

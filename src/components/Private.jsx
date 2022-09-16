@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase'
 import Home from '../Pages/Home'
 
+
 const Private = () => {
   const [user] = useAuthState(auth)
 

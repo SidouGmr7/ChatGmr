@@ -7,6 +7,7 @@ import General from '../img/General.PNG'
 
 const Admin = () => {
   const [chatrooms, setChatRoom] = useState([])
+
   useEffect(() => {
     const q = query(collection(db, 'users'), orderBy('timestamp'))
     onSnapshot(q, (querySnapshot) => {
@@ -15,18 +16,20 @@ const Admin = () => {
         chatrooms.push(doc.data())
       })
       setChatRoom(chatrooms)
+
     })
   }, [])
   const Global = {
-    uid : "All",
-    name : "General Chat Room",
-    photoURL : General
+    uid: 'All',
+    name: 'General Chat Room',
+    photoURL: General,
   }
+
   return (
-    <div className="bg-[#701efc] h-screen">
+    <div className='bg-[#701efc] h-screen'>
       <Navbar to='/' />
       <main className='flex flex-col p-3 pt-24 '>
-      <ChatRoom key={Global.uid} room={Global}/>
+        <ChatRoom key={Global.uid} room={Global} />
         {chatrooms &&
           chatrooms.map((room) => <ChatRoom key={room.uid} room={room} />)}
       </main>
