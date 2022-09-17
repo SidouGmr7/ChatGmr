@@ -21,6 +21,7 @@ export const googleSignIn = async () => {
     uid,
     timestamp: serverTimestamp(),
     photoURL: photoURL,
+    online: true
   }
   const docSnap = await getDoc(doc(db, 'users', uid))
 
@@ -29,6 +30,7 @@ export const googleSignIn = async () => {
   } else {
     await updateDoc(doc(db, 'users', uid), {
       LastIn: serverTimestamp(),
+      online: true
     })
   }
 }

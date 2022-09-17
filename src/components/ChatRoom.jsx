@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import AspectRatio from '@mui/joy/AspectRatio'
 import Card from '@mui/joy/Card'
 import CardContent from '@mui/joy/CardContent'
 import CardOverflow from '@mui/joy/CardOverflow'
-import { auth } from '../firebase'
+import { auth, db } from '../firebase'
+import { onAuthStateChanged } from 'firebase/auth'
+import { collection, onSnapshot, query, where } from 'firebase/firestore'
 
 const ChatRoom = ({ room }) => {
+  const [nbMessege, setnbMessege] = useState(0)
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      const q = query(
+        collection(db, 'users', user.uid, 'messages'),
+        where('vu', '==', false),
+        where('uid', '==', room.uid)
+      )
+      onSnapshot(q, (s) => {
+        let messages = []
+        s.forEach((doc) => {
+          messages.push(doc.data())
+        })
+        setnbMessege(messages.length)
+      })
+    })
+  }, [])
   return (
     room.uid != auth.currentUser.uid && (
       <div
@@ -21,6 +40,16 @@ const ChatRoom = ({ room }) => {
                   className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl rounded-full'
                   alt=''
                 />
+                {nbMessege > 0 && (
+                  <p className='absolute right-0 top-16 bg-rose-600 rounded-full px-2 text-gray-200'>
+                    {nbMessege}
+                  </p>
+                )}
+                {room.online && (
+                  <p className='absolute right-0 top-1 bg-green-400 rounded-full px-2 text-gray-200'>
+                    o
+                  </p>
+                )}
               </AspectRatio>
             </CardOverflow>
             <CardContent>

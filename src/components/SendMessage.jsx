@@ -24,6 +24,7 @@ const SendMessage = ({ scroll }) => {
       uid,
       timestamp: serverTimestamp(),
       photoURL: photoURL,
+      vu: false,
       to: params.userId,
     }
     if (params.userId === 'All') {
@@ -32,7 +33,6 @@ const SendMessage = ({ scroll }) => {
       await addDoc(collection(db, 'users', uid, 'messages'), Data)
       await addDoc(collection(db, 'users', params.userId, 'messages'), Data)
     }
-    console.log(1)
     setInput('')
     scroll.current.scrollIntoView({ behavior: 'smooth' })
   }

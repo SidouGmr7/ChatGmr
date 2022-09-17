@@ -1,7 +1,8 @@
-import React from 'react'
-import { auth } from '../firebase'
+import React, { useEffect } from 'react'
+import { auth, db } from '../firebase'
 import Tooltip from '@mui/material/Tooltip'
 import { useParams } from 'react-router-dom'
+import { doc, updateDoc } from 'firebase/firestore'
 
 const style = {
   message: ` items-center shadow-xl  py-2 px-3 rounded-tl-full rounded-tr-full`,
@@ -11,7 +12,14 @@ const style = {
 
 const Message = ({ message }) => {
   const params = useParams()
-
+  useEffect(() => {
+    if (params.userId == message.uid) {
+      updateDoc(
+        doc(db, 'users', auth.currentUser.uid, 'messages', message.id),
+        { vu: true }
+      )
+    }
+  }, [])
   const messageClass =
     message.uid === auth.currentUser.uid ? `${style.sent}` : `${style.received}`
   const chatClass =
@@ -60,6 +68,7 @@ const Message = ({ message }) => {
               <p>{message.text}</p>
             </div>
           </Tooltip>
+          
         </div>
       )}
     </>

@@ -8,23 +8,7 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-.loadingSpinnerContainer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .loadingSpinner {
-  width: 64px;
-  height: 64px;
-  border: 8px solid;
   border-color: #701efc transparent;
-  border-radius: 50%;
   animation: spin 1.5s infinite;
 }

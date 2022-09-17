@@ -1,13 +1,15 @@
 import React from 'react'
-import { auth } from '../firebase'
+import { auth, db } from '../firebase'
 import { FiLogOut } from 'react-icons/fi'
 import { useNavigate } from 'react-router-dom'
+import { doc, updateDoc } from 'firebase/firestore'
 
 const LogOut = () => {
   const Navigate = useNavigate()
   const signOut = () => {
     auth.signOut()
     Navigate('/')
+    updateDoc(doc(db, 'users', auth.currentUser.uid), { online: false })
   }
   return (
     <button
