@@ -3,14 +3,10 @@ import { auth, db } from '../firebase'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
 import { IoMdSend } from 'react-icons/io'
-import { useEffect } from 'react'
 
 const SendMessage = ({ scroll }) => {
   const [input, setInput] = useState('')
   const params = useParams()
-  useEffect(() => {
-    scroll.current.scrollIntoView({ behavior: 'smooth' })
-  }, [])
   const sendMessage = async (e) => {
     e.preventDefault()
     if (input === '') {
@@ -33,14 +29,14 @@ const SendMessage = ({ scroll }) => {
       await addDoc(collection(db, 'users', uid, 'messages'), Data)
       await addDoc(collection(db, 'users', params.userId, 'messages'), Data)
     }
-    setInput('')
     scroll.current.scrollIntoView({ behavior: 'smooth' })
+    setInput('')
   }
 
   return (
     <form
       onSubmit={sendMessage}
-      className='h-14 w-full max-w-[728px] text-xl bottom-0 fixed'>
+      className='h-14 w-full max-w-[728px] text-xl bottom-0 fixed md:w-[50%]'>
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}

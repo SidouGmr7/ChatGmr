@@ -25,53 +25,26 @@ const Message = ({ message }) => {
   const chatClass =
     message.uid === auth.currentUser.uid ? `flex-row-reverse` : ``
   return (
-    <>
-      {message.to === params.userId && (
-        <div className={`flex  gap-2 m-3 ${chatClass}`}>
-          <Tooltip title={message.name} arrow>
-            <img
-              src={message.photoURL}
-              className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl rounded-tl-full rounded-tr-full rounded-br-full'
-              alt=''
-            />
-          </Tooltip>
-          <Tooltip
-            title={
-              message.timestamp === null
-                ? 'times'
-                : message.timestamp.toDate().toISOString()
-            }
-            arrow>
-            <div className={`${style.message} ${messageClass}`}>
-              <p>{message.text}</p>
-            </div>
-          </Tooltip>
+    <div className={`flex  gap-2 m-3 ${chatClass}`}>
+      <Tooltip title={message.name} arrow>
+        <img
+          src={message.photoURL}
+          className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl rounded-tl-full rounded-tr-full rounded-br-full'
+          alt=''
+        />
+      </Tooltip>
+      <Tooltip
+        title={
+          message.timestamp === null
+            ? 'times'
+            : message.timestamp.toDate().toISOString()
+        }
+        arrow>
+        <div className={`${style.message} ${messageClass}`}>
+          <p>{message.text}</p>
         </div>
-      )}
-      {message.uid === params.userId && (
-        <div className={`flex  gap-2 m-3 ${chatClass}`}>
-          <Tooltip title={message.name} arrow>
-            <img
-              src={message.photoURL}
-              className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl rounded-tl-full rounded-tr-full rounded-br-full'
-              alt=''
-            />
-          </Tooltip>
-          <Tooltip
-            title={
-              message.timestamp === null
-                ? 'times'
-                : message.timestamp.toDate().toISOString()
-            }
-            arrow>
-            <div className={`${style.message} ${messageClass}`}>
-              <p>{message.text}</p>
-            </div>
-          </Tooltip>
-          
-        </div>
-      )}
-    </>
+      </Tooltip>
+    </div>
   )
 }
 

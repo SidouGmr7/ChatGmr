@@ -7,6 +7,8 @@ import CardOverflow from '@mui/joy/CardOverflow'
 import { auth, db } from '../firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 import { collection, onSnapshot, query, where } from 'firebase/firestore'
+import { GrStatusGoodSmall } from 'react-icons/gr'
+
 
 const ChatRoom = ({ room }) => {
   const [nbMessege, setnbMessege] = useState(0)
@@ -25,12 +27,12 @@ const ChatRoom = ({ room }) => {
         setnbMessege(messages.length)
       })
     })
-  }, [])
+  }, [room.uid])
   return (
-    room.uid != auth.currentUser.uid && (
+    room.uid !== auth.currentUser.uid && (
       <div
         key={room.uid}
-        className='mb-1 bg-gray-200 rounded-full hover:bg-gray-300 hover:scale-[102%] transition'>
+        className='mb-1 bg-gray-200 rounded-full hover:bg-gray-300 hover:scale-[102%] transition '>
         <Link to={`/admin/chat/${room.uid}`}>
           <Card row>
             <CardOverflow>
@@ -41,14 +43,12 @@ const ChatRoom = ({ room }) => {
                   alt=''
                 />
                 {nbMessege > 0 && (
-                  <p className='absolute right-0 top-16 bg-rose-600 rounded-full px-2 text-gray-200'>
+                  <p className='absolute right-0 top-16 bg-rose-600 rounded-full px-2 text-gray-200 text-sm'>
                     {nbMessege}
                   </p>
                 )}
                 {room.online && (
-                  <p className='absolute right-0 top-1 bg-green-400 rounded-full px-2 text-gray-200'>
-                    o
-                  </p>
+                  <GrStatusGoodSmall className='absolute right-0 top-1 bg-green-400 rounded-full px-2 text-gray-200' />
                 )}
               </AspectRatio>
             </CardOverflow>

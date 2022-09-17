@@ -10,7 +10,7 @@ const Navbar = ({ to }) => {
   const [user] = useAuthState(auth)
 
   return (
-    <div className='flex fixed w-full bg-[#030143] h-20 justify-between items-center p-4'>
+    <div className='flex fixed z-20 w-full bg-[#030143] h-20 justify-between items-center p-4'>
       {user && (
         <Link to={to}>
           <img

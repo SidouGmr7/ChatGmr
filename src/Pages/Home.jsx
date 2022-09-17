@@ -11,12 +11,12 @@ const Home = () => {
     googleSignIn()
     navigate('/admin')
   }
-
   return (
     <div className='bg-[#701efc] h-screen'>
       <Navbar to='/admin' />
       <p className='absolute top-[25%] left-[10%] text-[#260a80] text-4xl font-bold'>
-        Chat Gmr
+        <span className='text-[#170c3b]'>C</span>hat
+        <span className='text-[#170c3b]'> G</span>mr
       </p>
       <div className='absolute top-[33%] left-[15%] text-[#260a80] text-2xl font-bold space-x-10'>
         <p>The Most Growing</p> <p>App in The World</p>
