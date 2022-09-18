@@ -24,13 +24,9 @@ const Sidebar = () => {
 
   return (
     <div className='flex flex-col p-2 overflow-auto h-screen pt-24'>
-        <ChatRoom key={Global.uid} room={Global} />
-        {chatrooms &&
-          chatrooms.map((room) => <ChatRoom key={room.uid} room={room} />)}
-        {chatrooms &&
-          chatrooms.map((room) => <ChatRoom key={room.uid} room={room} />)}
-        {chatrooms &&
-          chatrooms.map((room) => <ChatRoom key={room.uid} room={room} />)}
+      <ChatRoom key={Global.uid} room={Global} />
+      {chatrooms &&
+        chatrooms.map((room) => <ChatRoom key={room.uid} room={room} />)}
     </div>
   )
 }
