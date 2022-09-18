@@ -62,7 +62,7 @@ const Chat = () => {
     scroll.current.scrollIntoView({ behavior: 'smooth' })
   }
   return (
-    <div className='bg-[#701efc] min-h-screen  bg-opacity-10'>
+    <div className='bg-[#49196b0e] min-h-screen  bg-opacity-10'>
       {spinner && <Spinner />}
       <main className='flex flex-col p-3 pb-16'>
         <Link
@@ -77,15 +77,14 @@ const Chat = () => {
         </button>
         {messages &&
           messages.map((message) => (
-            <div>
+            <>
               {message.to === params.userId && (
                 <Message key={message.id} message={message} />
               )}
               {message.uid === params.userId && (
                 <Message key={message.id} message={message} />
               )}
-              
-            </div>
+            </>
           ))}
         {Vu === 0 && (
           <p className=' px-2  text-gray-400 flex'>

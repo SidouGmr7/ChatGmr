@@ -11,33 +11,29 @@ function App() {
     sectionContainer: `flex flex-col h-[90vh] bg-gray-100 mt-10 shadow-xl border relative`,
   }
 
-
-
-
-  const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [windowSize, setWindowSize] = useState(getWindowSize())
 
   useEffect(() => {
     function handleWindowResize() {
-      setWindowSize(getWindowSize());
+      setWindowSize(getWindowSize())
     }
 
-    window.addEventListener('resize', handleWindowResize);
+    window.addEventListener('resize', handleWindowResize)
 
     return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleWindowResize)
+    }
+  }, [])
   return (
     <div className={style.appContainer}>
       <section className='{style.sectionContainer}'>
         <Router>
           <Routes>
             <Route path='/' element={<Home />} />
-            {windowSize.innerWidth > 768 ?(
-            <Route path='/admin/chat/:userId' element={<Admin />} />
-            ):(
-            <Route path='/admin/chat/:userId' element={<Chat />} />
-
+            {windowSize.innerWidth > 768 ? (
+              <Route path='/admin/chat/:userId' element={<Admin />} />
+            ) : (
+              <Route path='/admin/chat/:userId' element={<Chat />} />
             )}
             <Route path='/admin' element={<Private />}>
               <Route path='/admin' element={<Admin />} />
@@ -51,16 +47,7 @@ function App() {
 
 export default App
 
-
-
-
-
-
-
-
-
-
 function getWindowSize() {
-  const {innerWidth, innerHeight} = window;
-  return {innerWidth, innerHeight};
+  const { innerWidth, innerHeight } = window
+  return { innerWidth, innerHeight }
 }

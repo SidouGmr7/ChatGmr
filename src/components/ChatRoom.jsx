@@ -9,7 +9,6 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { collection, onSnapshot, query, where } from 'firebase/firestore'
 import { GrStatusGoodSmall } from 'react-icons/gr'
 
-
 const ChatRoom = ({ room }) => {
   const [nbMessege, setnbMessege] = useState(0)
   useEffect(() => {
@@ -30,34 +29,34 @@ const ChatRoom = ({ room }) => {
   }, [room.uid])
   return (
     room.uid !== auth.currentUser.uid && (
-      <div
-        key={room.uid}
-        className='mb-1 bg-gray-200 rounded-full hover:bg-gray-300 hover:scale-[102%] transition '>
-        <Link to={`/admin/chat/${room.uid}`}>
-          <Card row>
-            <CardOverflow>
-              <AspectRatio ratio='1' sx={{ width: 90 }}>
-                <img
-                  src={room.photoURL}
-                  className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl rounded-full'
-                  alt=''
-                />
+      <Link to={`/admin/chat/${room.uid}`}>
+        <div
+          class='flex hover:bg-gray-300  transition  rounded-full p-1 items-center'
+          key={room.uid}>
+          <div class='flex-shrink-0  rounded-full border border-gray-200'>
+            <img src={room.photoURL} className='rounded-full ' alt='' />
+          </div>
+          <div class='ml-4 flex flex-1 flex-col'>
+            <div class='flex justify-between  font-medium text-gray-900'>
+              <p className='text-[#260a80] w-full'>{room.name}</p>
+              {room.online && (
+                <GrStatusGoodSmall className='bg-green-400 rounded-full px-2 text-gray-200' />
+              )}
+            </div>
+            <div class='flex flex-1 items-end justify-between text-sm'>
+              <p class='text-gray-500'>Last message</p>
+
+              <div class='flex'>
                 {nbMessege > 0 && (
-                  <p className='absolute right-0 top-16 bg-rose-600 rounded-full px-2 text-gray-200 text-sm'>
+                  <p className=' bg-rose-600 rounded-full px-2 text-gray-200'>
                     {nbMessege}
                   </p>
                 )}
-                {room.online && (
-                  <GrStatusGoodSmall className='absolute right-0 top-1 bg-green-400 rounded-full px-2 text-gray-200' />
-                )}
-              </AspectRatio>
-            </CardOverflow>
-            <CardContent>
-              <p className='text-[#260a80] pt-3 text-xl'>{room.name}</p>
-            </CardContent>
-          </Card>
-        </Link>
-      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Link>
     )
   )
 }
